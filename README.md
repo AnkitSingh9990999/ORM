@@ -1,13 +1,9 @@
 # Ex02 Django ORM Web Application
-## Date: 
+## Date: 25/11/2026
+
 
 ## AIM
-To develop a Django Application to store and retrieve data from a E-Commerce Website Database for Amazon or Flipkart using Object Relational Mapping(ORM).
-
-
-## ENTITY RELATIONSHIP DIAGRAM
-
-
+To develop a Django application to store and retrieve restaurant data from an online food delivery platform database like Zomato or Swiggy using Object Relational Mapping (ORM).
 
 ## DESIGN STEPS
 
@@ -24,13 +20,30 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+~~~~~~
+admin.py
+from django.contrib import admin
+from .models import Restaurant, RestaurantAdmin
 
+admin.site.register(Restaurant, RestaurantAdmin)
 
+models.py
+from django.db import models
+from django.contrib import admin
 
+class Restaurant(models.Model):
+    rid = models.IntegerField()
+    rname = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    cuisine = models.CharField(max_length=100)
+    rating = models.FloatField()
+
+class RestaurantAdmin(admin.ModelAdmin):
+    list_display = ('rid', 'rname', 'location', 'cuisine', 'rating')
+~~~~~~
 ## OUTPUT
-
-Include the screenshot of your admin page.
-
+![alt text](<Screenshot 2026-11-25 143733.png>)
+![alt text](<Screenshot 2026-11-25 144501.png>)
 
 ## RESULT
-Thus the program for creating E-commerce website database using ORM hass been executed successfully
+Thus, the Django application for creating, storing and retrieving restaurant data from an online food delivery platform database using Object Relational Mapping (ORM) has been executed successfully.
